@@ -17,10 +17,10 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # Copia el archivo JAR de tu aplicación al directorio de trabajo
-COPY --from=build /app/target/ProyectoIntegrador-0.0.1-SNAPSHOT.jar .
+COPY --from=build /app/target/Proyecto-Integrador-0.0.1-SNAPSHOT.jar .
 
 # Exponer el puerto que utilizará la aplicación
 EXPOSE 8080
 
 # Define el comando de inicio de la aplicación
-CMD ["java", "-jar", "ProyectoIntegrador-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "Proyecto-Integrador-0.0.1-SNAPSHOT.jar"]
