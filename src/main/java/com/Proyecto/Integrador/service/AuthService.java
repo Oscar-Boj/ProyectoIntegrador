@@ -43,4 +43,14 @@ public class AuthService {
         userMongoRepository.save(user);
         return new AuthDto(this.jwtService.getToken(user));
     }
+
+    public boolean verifyToken(String token) {
+        try {
+            String username = jwtService.getUsernameFromToken(token);
+            UserDetails userDetails = userMongoRepository.findByEmail(username).orElse(null);
+            return jwtService.isTokenValid(token, userDetails);
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }
